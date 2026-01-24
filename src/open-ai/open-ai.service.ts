@@ -17,6 +17,7 @@ export class OpenAIService {
   async getResponseMessage(chatInput: ChatInputDto): Promise<string> {
     const response = await this.client.chat.completions.create({
       model: env.OPENAI_MODEL || 'gpt-4o-mini',
+      temperature: chatInput.temperature ?? 0.7,
       messages: chatInput.input,
     });
 
