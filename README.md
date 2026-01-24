@@ -10,18 +10,18 @@
 
 ---
 
-## ✨ Возможности
+## Возможности
 
-- ✅ NestJS + Express
-- ✅ Официальный `openai` SDK
-- ✅ SSE (Server-Sent Events)
-- ✅ Валидация входных данных (DTO + class-validator)
-- ✅ Один endpoint для stream / non-stream
-- ✅ Подходит для `curl`, браузера, Node.js клиента
+- NestJS + Express
+- Официальный `openai` SDK
+- SSE (Server-Sent Events)
+- Валидация входных данных (DTO + class-validator)
+- Один endpoint для stream / non-stream
+- Подходит для `curl`, браузера, Node.js клиента
 
 ---
 
-## 📦 Установка
+## Установка
 
 ```bash
 git clone https://github.com/papaya121/gpt-proxy.git
