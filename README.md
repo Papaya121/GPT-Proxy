@@ -52,6 +52,7 @@ npm run start
     }
   ],
 
-  "stream":false
+  "stream":false,
+  "temperature":0.7
 }
 ```

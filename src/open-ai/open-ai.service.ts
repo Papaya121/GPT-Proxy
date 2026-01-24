@@ -27,6 +27,7 @@ export class OpenAIService {
     const stream = await this.client.chat.completions.create({
       model: env.OPENAI_MODEL || 'gpt-4o-mini',
       messages: chatInput.input,
+      temperature: chatInput.temperature ?? 0.7,
       stream: true,
     });
 

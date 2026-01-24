@@ -5,6 +5,7 @@ import {
   ValidateNested,
   IsBoolean,
   IsOptional,
+  IsNumber,
 } from 'class-validator';
 import { MessageDto } from './message.dto';
 
@@ -18,4 +19,8 @@ export class ChatInputDto {
   @IsOptional()
   @IsBoolean()
   stream?: boolean;
+
+  @IsOptional()
+  @IsNumber()
+  temperature?: number;
 }
