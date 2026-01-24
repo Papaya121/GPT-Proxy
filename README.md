@@ -34,3 +34,24 @@ npm install
 ```bash
 npm run start
 ```
+
+## Использование
+
+Пример POST / запроса в корень сервера
+
+```bash
+{
+  "input": [
+    {
+      "role": "system",
+      "content": "Отвечай без Markdown"
+    },
+    {
+      "role": "user",
+      "content": "Что такое My Little Pony в 2-ух коротких предложениях."
+    }
+  ],
+
+  "stream":false
+}
+```
