@@ -56,3 +56,30 @@ npm run start
   "temperature":0.7
 }
 ```
+
+Пример запроса с картинкой (совместим с форматом OpenAI Chat Completions):
+
+```json
+{
+  "input": [
+    {
+      "role": "user",
+      "content": [
+        { "type": "text", "text": "Что изображено на фото?" },
+        {
+          "type": "image_url",
+          "image_url": {
+            "url": "https://example.com/cat.jpg",
+            "detail": "auto"
+          }
+        }
+      ]
+    }
+  ],
+  "stream": false
+}
+```
+
+Также поддерживаются алиасы из Responses API:
+- `input_text` вместо `text`
+- `input_image` вместо `image_url`
