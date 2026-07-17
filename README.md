@@ -37,6 +37,20 @@ npm run start
 
 ## Использование
 
+Проверка состояния сервиса:
+
+```bash
+curl http://localhost:3000/health
+```
+
+Ответ:
+
+```json
+{
+  "status": "ok"
+}
+```
+
 Пример POST / запроса в корень сервера
 
 ```bash

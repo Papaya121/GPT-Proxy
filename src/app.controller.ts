@@ -7,6 +7,11 @@ import type { Response } from 'express';
 export class AppController {
   constructor(private readonly openAIService: OpenAIService) {}
 
+  @Get('health')
+  getHealth() {
+    return { status: 'ok' };
+  }
+
   @Post()
   async getAIResponse(@Body() input: ChatInputDto, @Res() res: Response) {
     if (input.stream) {
