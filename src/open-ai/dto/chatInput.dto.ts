@@ -6,10 +6,17 @@ import {
   IsBoolean,
   IsOptional,
   IsNumber,
+  IsString,
+  IsNotEmpty,
 } from 'class-validator';
 import { MessageDto } from './message.dto';
 
 export class ChatInputDto {
+  @IsOptional()
+  @IsString()
+  @IsNotEmpty()
+  model?: string;
+
   @IsArray()
   @ArrayMinSize(1)
   @ValidateNested({ each: true })

@@ -41,6 +41,7 @@ npm run start
 
 ```bash
 {
+  "model": "gpt-4o-mini",
   "input": [
     {
       "role": "system",
@@ -56,6 +57,9 @@ npm run start
   "temperature":0.7
 }
 ```
+
+Поле `model` необязательное. Если оно не передано, сервер использует модель из
+переменной окружения `OPENAI_MODEL`, а при ее отсутствии — `gpt-4o-mini`.
 
 Пример ответа
 
@@ -89,5 +93,6 @@ npm run start
 ```
 
 Также поддерживаются алиасы из Responses API:
+
 - `input_text` вместо `text`
 - `input_image` вместо `image_url`

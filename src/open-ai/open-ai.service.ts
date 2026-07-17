@@ -30,7 +30,7 @@ export class OpenAIService {
   async getResponseMessage(chatInput: ChatInputDto): Promise<string> {
     const messages = this.normalizeMessages(chatInput.input);
     const response = await this.client.chat.completions.create({
-      model: env.OPENAI_MODEL || 'gpt-4o-mini',
+      model: chatInput.model || env.OPENAI_MODEL || 'gpt-4o-mini',
       temperature: chatInput.temperature ?? 0.7,
       messages,
     });
@@ -41,7 +41,7 @@ export class OpenAIService {
   async getStreamingResponse(chatInput: ChatInputDto, res: Response) {
     const messages = this.normalizeMessages(chatInput.input);
     const stream = await this.client.chat.completions.create({
-      model: env.OPENAI_MODEL || 'gpt-4o-mini',
+      model: chatInput.model || env.OPENAI_MODEL || 'gpt-4o-mini',
       messages,
       temperature: chatInput.temperature ?? 0.7,
       stream: true,
@@ -54,7 +54,9 @@ export class OpenAIService {
     }
   }
 
-  private normalizeMessages(input: ChatInputDto['input']): ChatCompletionMessageParam[] {
+  private normalizeMessages(
+    input: ChatInputDto['input'],
+  ): ChatCompletionMessageParam[] {
     return input.map((message, messageIndex) => {
       if (typeof message.content === 'string') {
         return {
@@ -105,7 +107,11 @@ export class OpenAIService {
 
       return {
         type: 'image_url' as const,
-        image_url: this.normalizeImageUrl(part.image_url, messageIndex, partIndex),
+        image_url: this.normalizeImageUrl(
+          part.image_url,
+          messageIndex,
+          partIndex,
+        ),
       } as ChatCompletionContentPart;
     }
 
